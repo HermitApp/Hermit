@@ -120,6 +120,12 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hermit.Plugin\Hermit.Plugin.csproj">
+      <Project>{c603c4e7-6c6d-42d8-bbd8-32fa4c487260}</Project>
+      <Name>Hermit.Plugin</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
