@@ -3,7 +3,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:cal="http://www.caliburnproject.org"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{Binding DisplayName}" Height="500" Width="500" EnableDWMDropShadow="True">
+        Title="{Binding DisplayName}" Height="500" Width="500" EnableDWMDropShadow="True" WindowState="Maximized">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="settings" cal:Message.Attach="[Event Click] = [Action ShowSettings()]"/>
