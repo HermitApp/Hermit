@@ -27,6 +27,9 @@ namespace Hermit
             base.OnInitialize();
         }
 
-
+        public void ShowSettings()
+        {
+            windowManager.ShowWindow(new SettingsViewModel());
+        }
     }
 }
