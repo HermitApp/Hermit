@@ -8,6 +8,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using Caliburn.Micro;
 using System.Windows;
+using System.IO;
 
 namespace Hermit
 {
@@ -22,8 +23,17 @@ namespace Hermit
 
         protected override void Configure()
         {
-            container = new CompositionContainer(new AggregateCatalog(AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>()));
+            AggregateCatalog catalogs = new AggregateCatalog();
 
+            if(!Directory.Exists("./Plugins"))
+            {
+                Directory.CreateDirectory("./Plugins");
+            }
+            catalogs.Catalogs.Add(new DirectoryCatalog("./Plugins"));
+            catalogs.Catalogs.Add(new AggregateCatalog(AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>()));
+
+            container = new CompositionContainer(catalogs);
+            
             CompositionBatch batch = new CompositionBatch();
 
             batch.AddExportedValue<IWindowManager>(new WindowManager());
