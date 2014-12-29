@@ -15,11 +15,17 @@ namespace Hermit
         [ImportMany]
         private IList<IPlugin> plugins;
 
+        [ImportMany]
+        private IList<Shell> shells;
+
         public PluginManager()
         {
             plugins = new List<IPlugin>();
+            shells = new List<Shell>();
 
-            var catalog = new AssemblyCatalog(Assembly.GetExecutingAssembly());
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+            catalog.Catalogs.Add(new DirectoryCatalog("./Plugins"));
             var container = new CompositionContainer(catalog);
             container.ComposeParts(this);
         }
@@ -27,6 +33,17 @@ namespace Hermit
         public IList<T> GetPlugins<T>() where T : IPlugin
         {
             return plugins.OfType<T>().ToList<T>();
+        }
+
+        public IShell GetShell()
+        {
+            if(shells.Count != 0)
+            {
+                return shells.OfType<Shell>().First();    
+            }
+
+            return null;
+            
         }
     }
 }
