@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Hermit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Deere & Company")]
+[assembly: AssemblyCompany("HermitApp")]
 [assembly: AssemblyProduct("Hermit")]
-[assembly: AssemblyCopyright("Copyright © Deere & Company 2014")]
+[assembly: AssemblyCopyright("Copyright © HermitApp 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
