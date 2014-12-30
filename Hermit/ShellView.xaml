@@ -3,13 +3,13 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:cal="http://www.caliburnproject.org"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{Binding DisplayName}" Height="500" Width="500" EnableDWMDropShadow="True" WindowState="Maximized">
+        Title="{Binding DisplayName}" Height="Auto" Width="Auto" EnableDWMDropShadow="True">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="settings" cal:Message.Attach="[Event Click] = [Action ShowSettings()]"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        
+        <ContentControl x:Name="PluginShell"/>
     </Grid>
 </Controls:MetroWindow>

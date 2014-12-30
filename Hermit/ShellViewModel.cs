@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using Caliburn.Micro;
+using Hermit.Plugin;
 
 namespace Hermit
 {
@@ -15,11 +16,18 @@ namespace Hermit
 
         private readonly IWindowManager windowManager;
 
+        public Shell PluginShell { get; set; }
+
         [ImportingConstructor]
         public ShellViewModel()
         {
             this.DisplayName = name;
             windowManager = new WindowManager();
+            PluginShell = new Shell();
+
+            PluginManager p = new PluginManager();
+
+            PluginShell = (Shell)p.GetShell();
         }
 
         protected override void OnInitialize()
