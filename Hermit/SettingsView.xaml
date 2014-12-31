@@ -4,10 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{Binding DisplayName}" Height="500" Width="500" EnableDWMDropShadow="True" WindowStartupLocation="CenterOwner">
     <Grid>
-        <Controls:MetroTabControl x:Name="Settings">
+        <Controls:MetroTabControl x:Name="PluginSettings">
             <Controls:MetroTabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding DisplayName}"/>
+                    <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
             </Controls:MetroTabControl.ItemTemplate>
         </Controls:MetroTabControl>

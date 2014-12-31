@@ -11,14 +11,14 @@ namespace Hermit
     public class SettingsViewModel : Screen
     {
         private PluginManager plugins;
-        private List<ISettingsItem> _Settings = new List<ISettingsItem>();
+        private List<ISettingsItem> _PluginSettings = new List<ISettingsItem>();
 
-        public List<ISettingsItem> Settings
+        public List<ISettingsItem> PluginSettings
         {
-            get { return _Settings; }
+            get { return _PluginSettings; }
             set
             {
-                _Settings = value;
+                _PluginSettings = value;
             }
         }
 
@@ -26,7 +26,7 @@ namespace Hermit
         {
             this.DisplayName = "Settings";
             plugins = new PluginManager();
-            _Settings = plugins.GetPlugins<ISettingsItem>().ToList<ISettingsItem>();
+            _PluginSettings = plugins.GetPlugins<IPlugin>().ToList<IPlugin>().Select(plug => plug.Settings).ToList<ISettingsItem>();
         }
 
     }

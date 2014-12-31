@@ -15,13 +15,13 @@ namespace Hermit
         [ImportMany]
         private IList<IPlugin> plugins;
 
-        [ImportMany]
-        private IList<Shell> shells;
+        //[ImportMany]
+        private IList<IShell> shells;
 
         public PluginManager()
         {
             plugins = new List<IPlugin>();
-            shells = new List<Shell>();
+            shells = new List<IShell>();
 
             var catalog = new AggregateCatalog();
             catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
