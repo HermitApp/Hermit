@@ -8,7 +8,6 @@ At the moment I am not too particular about what else gets committed or what the
 expectations are, until I find a process and stick to it myself. Below is a list
 of criteria i am looking consider.
 
-- Passing unit tests for changes
 - Fully documented code, with XML tags
 - Passing build
 - Updated wiki if necessary
