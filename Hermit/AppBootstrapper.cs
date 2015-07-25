@@ -20,18 +20,18 @@ namespace Hermit
 
         public AppBootstrapper()
         {
+            string plugin = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins");
+
+            if (!Directory.Exists(plugin))
+            {
+                Directory.CreateDirectory(plugin);
+            }
+
             Initialize();
         }
 
         protected override void Configure()
         {
-            string plugin = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins");
-
-            if(!Directory.Exists(plugin))
-            {
-                Directory.CreateDirectory(plugin);
-            }
-
             AggregateCatalog catalogs = new AggregateCatalog(AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>());
 
             container = new CompositionContainer(catalogs);
